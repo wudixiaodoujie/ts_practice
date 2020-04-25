@@ -1,83 +1,49 @@
+ 
+// 基础类型
+let boolean: Boolean | string;
+boolean = true;
+console.log(boolean);
 
-//数字类型
-let num: number = 1;
-console.log(num);
-//字符串类型
-let str: string = "xiaoge";
-console.log(str);
-//布尔类型
-let boolen: boolean = true;
-console.log(boolen);
-//数组
-let arr: Array<number | string> = ["ha", 3, 5];
-let brr: (number | string)[] = [3, '8'];
+let arr: (number|string)[] = [1, 2, 3, '1'];
+let brr : Array<number|string> = [1, 2, '3'];
 console.log(arr);
-//元组类型：限定数组类型和长度
-let crr: [number, string] = [1, '2'];
-console.log(crr);
-//多类型声明
-let str1: string|number|undefined;
-str1 = "xiao";
-str1 = 3;
-str1 = undefined;
-console.log(str1);
-let sym: symbol = Symbol(89);
-console.log(sym);
-let unde: undefined = undefined;
-console.log(unde);
-let null1: null = null;
-console.log(null1);
+console.log(brr);
 
-//函数类型
-let fun: (x: number, y: number)=>{};
-fun = (x, y)=>{return x>y};
-console.log(fun(1, 2));
-//对象类型
-// let obj: object;
-// obj = {
-//     x: 1,
-//     y: 2
-// };
-// obj.x = 3;
-let obj: {x: number, y: number};
-obj = {
-    x: 1,
-    y: 2
-};
-obj.x = 3;
+//元组类型:限定了数组中元素的数量和类型
+let x : [string, number] = ['2', 3];
+// x[2] = 'world';
+// console.log(x[2]);
+
+//枚举：可以为一组数值赋予友好的名字
+enum Color{red = 1, blue, yellow};
+let c: Color = Color.blue;
+console.log(Color[2]);  //由枚举值得到他的名字
+
+//any类型
+let crr: any[] = [1, 2, 3, true];
+console.log(crr);
+
+//void表示没有任何类型,与any含义相反
+let v: void = undefined;
+console.log(v);
+
+let u: undefined = undefined;
+let n: null = null;
+
+// never类型表示的是那些永不存在的值的类型。
+// 例如，never类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型；变量也可能是never类型，当它们被永不为真的类型保护所约束时。
+function fail() {
+    return new Error("Something failed");
+}
+console.log(fail());
+
+// object类型
+let obj: object = {name: "xiaoge", age: 20};
+// obj.age = 20;
 console.log(obj);
 
-let func1 = (a: number, b: number)=>{
-    if(a > b){
-        console.log(0);
-    }else{
-        console.log(0);
-    }
-}; 
-console.log(func1(3, 1));
-//声明方式: let 变量名: 数据类型;
-
-// enum Response {
-//     No = 0,
-//     Yes = 1,
-// }
-
-// function respond(recipient: string, message: Response): void {
-//     console.log(message);
-// }
-
-// respond("Princess Caroline", Response.Yes)
-
-//枚举类型
-// enum member {
-//     master = 1,
-//     user, 
-// } 
-// function func(role: string, members: member){
-//     if(role == members.master){
-
-//     }
-// }  
-// let data: string = member[1]
-// console.log(data);
+//类型断言
+let some: any = 'this is a book';
+let num: number = (some as string).length;
+console.log(num);
 

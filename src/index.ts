@@ -1,3 +1,3 @@
-// import './ts/dataType'
+import './ts/dataType'
 
-import './ts/enum'
+// import './ts/enum'
